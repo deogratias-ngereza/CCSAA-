@@ -1,0 +1,73 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo"
+    xmlns:ns="nativescript-carousel"
+    xmlns:Card="nativescript-cardview"
+    >
+    <Page.actionBar>
+        <ActionBar title="Home" icon="" style="background-color:red;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar> 
+
+    <GridLayout rows="*,auto" columns="*">
+        
+        
+
+        <ScrollView row="0">
+
+
+            <StackLayout>
+
+                <StackLayout row="0" style="height:400px;">
+                    <ns:Carousel height="100%" width="100%" android:indicatorAnimation="slide" indicatorColor="blue" finite="true" autoPagingInterval="1" showIndicator="true" verticalAlignment="top" finite="true" bounce="false">                
+                        <ns:CarouselItem id="slide1" backgroundColor="#b3cde0" verticalAlignment="middle">
+                            <!--<Label text="Slide 1" backgroundColor="#50000000" horizontalAlignment="center"/>-->
+                            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNuglIjuBKPwdejoaeV6uWKeCfkII8dEx-LdpxsbSbHOLMlWpYbw" stretch="aspectFill" />
+                        </ns:CarouselItem>
+                        <ns:CarouselItem id="slide2" backgroundColor="#6497b1" verticalAlignment="middle">
+                            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM_EZ01998RAFBc0rVmjGIyYVlfxVjXthZyESOfaQ2nmvX3-N9" stretch="aspectFill" />
+                        </ns:CarouselItem>
+                        <ns:CarouselItem id="slide3" backgroundColor="#005b96" verticalAlignment="middle">
+                            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgzER6A2hc40fTJIUm50VILXv6RdAi3aWTPNQU21z9KPgd7VCd" stretch="aspectFill" />
+                        </ns:CarouselItem>
+                        <ns:CarouselItem id="slide4" backgroundColor="#03396c" verticalAlignment="middle">
+                            <Image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxhKaJmr-GX2FdPA_jNNfFn2xVnD-KMLS1Ae0i1m24XsiJRYsBjw" stretch="aspectFill" />
+                        </ns:CarouselItem>
+                    </ns:Carousel>
+                </StackLayout>
+
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <grid-layout rows="100, auto" columns="auto, auto, *">
+                        <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM_EZ01998RAFBc0rVmjGIyYVlfxVjXthZyESOfaQ2nmvX3-N9" stretch="aspectFill" colSpan="3" row="0" />
+                        <label text="" class="info" textWrap="true" row="1" colSpan="3" />
+                        
+                    </grid-layout>
+                </Card:CardView>
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <grid-layout rows="200, auto, auto" columns="auto, auto, *">
+                        <image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxhKaJmr-GX2FdPA_jNNfFn2xVnD-KMLS1Ae0i1m24XsiJRYsBjw" stretch="aspectFill" colSpan="3" row="0" />
+                        <label text="Batman wants to be friends?" class="info" textWrap="true" row="1" colSpan="3" />
+                        <button text="DECLINE" tap="goAway" row="2" col="0" />
+                        <button text="ACCEPT" row="2" col="1" />
+                    </grid-layout>
+                </Card:CardView>
+                <Label text="Welcome" style="text-align:center;font-size:60px;color:gray;margin-top:150px;" textWrap="true" />
+                    
+            </StackLayout>
+        </ScrollView>
+
+
+        <Button row="1" text="hello" tap="{{ goHelloPage }}" style="background-color:red;color:white;"/>
+    </GridLayout>
+
+
+
+    
+
+
+
+    
+</Page>

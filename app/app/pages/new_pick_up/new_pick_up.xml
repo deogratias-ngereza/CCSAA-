@@ -1,0 +1,90 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+    
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="New Pickup" icon="" style="color:white;" class="base_bg_color">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ goBack }}" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <GridLayout rows="*,auto" columns="*">
+
+
+        <ScrollView>
+            <StackLayout>
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <StackLayout style="padding:40px;">
+                        <Label text="Jaza fomu ifuatayo(Step 1/3)" style="color:#bab8b8;font-size:25px;align:center;" textWrap="true" />
+                        <Label text="Tafadhali jaza fomu ifuatayo na kisha bonyeza kitufe kilichoandikwa endelea kilichopo kwa chini kabisa ili kuelekea kujaza form ya pili." textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
+            
+
+                        <!-- Loading Indicator -->
+                        <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                            <ActivityIndicator style="margin-top:50;margin-bottom:50;" class="base_color" busy="{{loadingStatus}}" />
+                        </StackLayout>
+
+                        <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
+                            
+                            <GridLayout rows="*" columns="50,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Aina(chagua)" tap="{{pickProductType}}" textWrap="true" style="margin-top:65px;" />
+                                <TextField row="0" col="1" hint="Aina ya mzigo" text="{{ product_type }}" tap="{{pickProductType}}" style="margin:30px;" class="txt-input"/>
+                            </GridLayout>
+                            <GridLayout rows="*" columns="50,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Idadi" textWrap="true" style="margin-top:65px;" />
+                                <TextField row="0" col="1" hint="Ziko ngapi" text="{{ product_qty }}" style="margin:30px;" class="txt-input"/>
+                            </GridLayout>
+                            <GridLayout rows="*" columns="50,*">
+                                <Label row="0" col="0" text="Njoo Tarehe" textWrap="true" style="margin-top:65px;" />
+                                <DatePicker row="0" col="1" day="{{pickup_date.day}}" month="{{pickup_date.month}}" year="{{pickup_date.year}}"></DatePicker>
+                                
+                                <!--<TextField row="0" col="1" hint="Jina la mwisho" text="{{  pickUpObj.last_name }}" style="margin:30px;" class="txt-input"/>
+                                -->
+                            </GridLayout>
+                            <GridLayout rows="*" columns="50,*">
+                                <Label row="0" col="0" text="Muda" style="margin-top:65px;" />
+                                <!--<TextField row="0" col="1" hint="Namba ya simu" text="{{  pickUpObj.phone }}" style="margin:30px;" class="txt-input"/>
+                                -->
+                                <!--<TimePicker hour="{{pickup_time.hour}}" minute="{{pickup_time.minute}}" row="0" col="1"></TimePicker>-->
+                                <TextField row="0" col="1" hint="eg. 11:00 am" text="{{  sch_time }}" textWrap="true" style="margin:30px;" class="txt-input"/>
+                                
+                            </GridLayout>
+                            <GridLayout rows="*" columns="50,*">
+                                <Label row="0" col="0" text="Maelezo" style="margin-top:65px;" />
+
+                                <TextField row="0" col="1" hint="Maelezo mafupi ya mzigo" text="{{  product_description }}" textWrap="true" style="margin:30px;" class="txt-input"/>
+                            </GridLayout>
+                            <GridLayout rows="*" columns="50,*">
+                                <Label row="0" col="0" text="Uzito" style="margin-top:65px;" />
+                                <TextField row="0" col="1" hint="Uzito wa mzigo" text="{{  estimated_weight }}" style="margin:30px;" class="txt-input"/>
+                            </GridLayout>
+                            <GridLayout rows="*" columns="*" style="background-color:#e2dede;margin:20px;">
+                            
+                            </GridLayout>
+
+                            <Button text="Endelea" tap="{{processForm}}" style="margin:10px;;color:white;" class="base_back_color" />
+                
+                        </StackLayout>
+                        
+                        
+                    </StackLayout>
+                </Card:CardView>
+                
+            </StackLayout>
+        </ScrollView>
+        
+    </GridLayout>
+
+
+
+
+</Page>

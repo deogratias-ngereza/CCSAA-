@@ -1,0 +1,26 @@
+<!--<Frame defaultPage="exe/grid/grid1">
+</Frame>-->
+
+
+<!--<Frame defaultPage="app/pages/layout/main">
+</Frame>-->
+
+<Frame defaultPage="app/pages/login/login">
+</Frame> 
+
+
+<!-- app-root.xml -->
+<!--<TabView androidTabsPosition="top">
+    <TabViewItem title="First">
+        <Frame defaultPage="exe/grid/grid1" />
+    </TabViewItem>
+    <TabViewItem title="Second">
+        <Frame defaultPage="hello/hello" />
+    </TabViewItem>
+    <TabViewItem title="Third">
+        <Frame defaultPage="hello/hello" />
+    </TabViewItem>
+    <TabViewItem title="Forth">
+        <Frame defaultPage="exe/grid/grid1" />
+    </TabViewItem>
+</TabView>-->

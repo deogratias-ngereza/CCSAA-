@@ -1,0 +1,60 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    background="#B9161C"
+    actionBarHidden="true"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="OTP verification" icon="" style="background-color:#B9161C;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+        <StackLayout>
+            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                <StackLayout style="padding:40px;">
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+
+                   <!-- Loading Indicator -->
+                    <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                        <ActivityIndicator style="margin-top:50;margin-bottom:50;color:#B9161C;" busy="{{loadingStatus}}" />
+                    </StackLayout>
+            
+
+                    <!--<Label text="Ingiza namba ya simu" style="color:#bab8b8;font-size:30px;align:center;" textWrap="true" />-->
+                    
+                    <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
+                        <GridLayout rows="*" columns="*" style="margin-top:20px;">
+                            <TextField row="0" col="0" keyboardType="number" hint="Ingiza OTP" text="{{  OTPObj.otp }}" style="margin:30px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <Button text="Hakiki Usajili" tap="{{validate}}" style="margin:10px;;color:white;" class="base_back_color" />
+
+                         <StackLayout orientation="Horizontal">
+                            <Label text="Tuma OTP Tena" tap="{{ resendOTP }}" textWrap="true" style="text-align:right;width:40%;color:#4269dd;font-size:16px;margin-top:20px;margin-right:20px;" />
+                            <Label text="Login" tap="{{ goLogin }}" textWrap="true" style="text-align:left;width:60%;color:#B9161C;font-size:16px;margin-top:20px;margin-left:20px;"/>
+                        </StackLayout>
+
+                        <Label text="Utapokea ujumbe mfupi wenye namba za kuhakiki usajili wako(Ujumbe utatumwa ndani ya dk 5)" textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
+            
+                    </StackLayout>
+                    
+                    
+                </StackLayout>
+            </Card:CardView>
+            
+        </StackLayout>
+    </ScrollView>
+
+    
+</Page>

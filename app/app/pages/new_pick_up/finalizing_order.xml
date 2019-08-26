@@ -1,0 +1,91 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    actionBarHidden="true"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Set Address" icon="" style="background-color:#B9161C;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+        <StackLayout>
+
+            <!-- old set location -->
+            <Card:CardView visibility="{{ !SHOW_NEW_DELIVERY_FORM ? 'visible' : 'collapsed' }}" class="cardStyle" margin="10" elevation="40" radius="5">
+                <StackLayout style="padding:40px;">
+
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+
+                    <!--<StackLayout orientation="horizontal" style="background-color:#8c998b;">
+                        <Label text="Pickup Address(Kuchukulia)" tap="{{ goSetPickPoint }}"  style="color:white;width:70%;padding:10px;" align="left" textWrap="true" />
+                        
+                    </StackLayout>-->
+
+                     <!-- Loading Indicator -->
+                    <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                        <ActivityIndicator style="margin-top:50;margin-bottom:50;" class="base_color" busy="{{loadingStatus}}" />
+                    </StackLayout>
+
+                    <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}" style="padding:10px;">
+
+                         <Label text="Final step" style="color:#bab8b8;font-size:20px;align:center;" textWrap="true" />
+                    
+                        
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:40px;">
+                            <Label row="0" col="0" text="From/Kutoka" style="margin-top:5px;" />
+                            <StackLayout row="0" col="1">
+                            <Label text="{{ pickUpObj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ pickUpObj.region_obj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ pickUpObj.district_obj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ pickUpObj.covered_area_obj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ pickUpObj.specific_area + ' - ' + pickUpObj.phone}}" style="margin-top:5px;" textWrap="true" />
+                            </StackLayout>
+                        </GridLayout>
+
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:40px;">
+                            <Label row="0" col="0" text="To/Kwenda" style="margin-top:5px;" />
+                            <StackLayout row="0" col="1">
+                                <Label text="{{ dropLocObj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ dropLocObj.region_obj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ dropLocObj.district_obj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ dropLocObj.covered_area_obj.name }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ dropLocObj.specific_area + ' - ' + dropLocObj.phone}}" style="margin-top:5px;" textWrap="true" />
+                            </StackLayout>
+                        </GridLayout>
+
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:40px;">
+                            <Label row="0" col="0" text="Luggage/Mzigo" style="margin-top:5px;" />
+                            <StackLayout row="0" col="1">
+                                <Label text="{{ luggageObj.product_type }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ 'Qty : ' + luggageObj.product_qty }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ luggageObj.product_description }}" style="margin-top:5px;" textWrap="true" />
+                                <Label text="{{ 'On: ' + luggageObj.sch_date}}" style="margin-top:5px;" textWrap="true" />
+                            </StackLayout>
+                        </GridLayout>
+
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                            <Label tap="{{cancelOrder}}" row="0" col="0" text="Cancel?" style="margin-top:70px;" />
+                            <Button tap="{{ confirmOrder }}" row="0" col="1" text="Confirm Order" style="margin:10px;;color:white;" class="base_back_color"></Button>
+                        </GridLayout> 
+                        
+                    </StackLayout>
+                </StackLayout>
+            </Card:CardView>
+
+            
+        </StackLayout>
+    </ScrollView>
+
+    
+</Page>

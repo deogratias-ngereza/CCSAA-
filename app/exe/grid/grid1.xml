@@ -1,0 +1,21 @@
+<Page 
+xmlns="http://www.nativescript.org/tns.xsd" 
+loaded="onLoaded" 
+navigatedTo="onNavigatedTo"
+>
+    
+
+
+
+    <GridLayout rows="*,auto" columns="*,*">
+        <StackLayout row="0" colSpan="2">
+            <SearchBar id="searchBar" hint="Search" text="" clear="onClear" submit="onSubmit" />
+            
+            
+            
+        </StackLayout>
+        <Button text="Back" tap="" row="1" col="0" />
+        <Button text="Next" tap="{{ nextPage }}" row="1" col="1" />
+    </GridLayout>
+
+</Page>

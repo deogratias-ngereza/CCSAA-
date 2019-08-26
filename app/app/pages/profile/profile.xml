@@ -1,0 +1,72 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+    
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Profile" icon="" style="color:white;" id="actionBar">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ goBack }}" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <GridLayout rows="auto,*" columns="*">
+
+
+        <ScrollView>
+        <StackLayout>
+            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                <StackLayout style="padding:40px;">
+                    <Label text="{{'Details - '+ userOBJ.phone_no}}" style="color:#bab8b8;font-size:30px;align:center;" textWrap="true" />
+
+                    <!-- Loading Indicator -->
+                    <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                        <ActivityIndicator style="margin-top:50;" class="base_color" busy="{{loadingStatus}}" />
+                    </StackLayout>
+            
+                    <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
+                        
+                        <GridLayout rows="*" columns="100,*" style="margin-top:20px;">
+                            <Label row="0" col="0" text="Jina la kwanza" style="margin-top:65px;" />
+                            <TextField row="0" col="1" hint="Jina la kwanza" text="{{  userOBJ.first_name }}" style="margin:30px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Jina la mwisho" style="margin-top:65px;" />
+                            <TextField row="0" col="1" hint="Jina la mwisho" text="{{  userOBJ.last_name }}" style="margin:30px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Email ID" style="margin-top:65px;" />
+                            <TextField row="0" col="1" hint="eg. example@gmail.com" text="{{  userOBJ.email }}" style="margin:30px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Mahali unapoishi" style="margin-top:65px;" />
+                            <TextField row="0" col="1" hint="Mahali unapoishi" text="{{  userOBJ.address }}" style="margin:30px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="*" style="background-color:#e2dede;margin:20px;">
+                        
+                        </GridLayout>
+
+                        <Button text="Update" tap="{{update}}" style="margin:10px;;color:white;" class="base_back_color" />
+            
+                    </StackLayout>
+                    
+                    
+                </StackLayout>
+            </Card:CardView>
+            
+        </StackLayout>
+    </ScrollView>
+        
+    </GridLayout>
+
+
+
+
+</Page>

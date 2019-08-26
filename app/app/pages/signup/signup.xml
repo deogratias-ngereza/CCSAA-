@@ -1,0 +1,85 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    actionBarHidden="true"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Signup" icon="" style="color:white;" class="base_color">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+        <StackLayout>
+            <Card:CardView class="cardStyle" margin="8" elevation="40" radius="5">
+                <StackLayout style="padding:10px;">
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+                    
+                    <!-- Loading Indicator -->
+                    <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                        <ActivityIndicator style="margin-top:40;" class="base_color" busy="{{loadingStatus}}" />
+                    </StackLayout>
+            
+            
+
+                    <!--<Label text="Jisajili " style="color:#bab8b8;font-size:20px;align:center;" textWrap="true" />-->
+                    
+                    <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
+                        <GridLayout rows="*" columns="80,*" style="margin-top:20px;">
+                            <Label row="0" col="0" text="First Name" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Jina la mwanzo" text="{{  signUpObj.first_name }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Last Name" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Jina la mwisho" text="{{  signUpObj.last_name }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Phone" style="margin-top:35px;" />
+                            <TextField row="0" col="1" keyboardType="number" hint="mfano. 0688059688" text="{{  signUpObj.phone_no }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+                        
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Address" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Mahali unapoishi" text="{{  signUpObj.address }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+                        <!--<GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Email ID" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Email akaunti" text="{{  signUpObj.email }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>-->
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Password" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Namba ya siri" text="{{  signUpObj.password }}" secure="true" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Confirm Password" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Rudia namba ya siri" text="{{  signUpObj.password2 }}" secure="true" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="*" style="background-color:#e2dede;margin:20px;">
+                        
+                        </GridLayout>
+
+                        <Button text="Jiunge" tap="{{signup}}" style="margin:10px;;color:white;" class="base_back_color" />
+
+                        <Label text="Utapokea ujumbe mfupi wenye OTP namba,ingiza OTP namba kuhakiki usajili wako (Ujumbe utatumwa ndani ya dk 5)" textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
+                
+                    </StackLayout>
+                   
+        
+                    
+                </StackLayout>
+            </Card:CardView>
+            
+        </StackLayout>
+    </ScrollView>
+
+    
+</Page>

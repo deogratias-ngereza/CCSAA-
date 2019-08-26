@@ -1,0 +1,51 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" 
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3b3b47" />
+
+    <Page.actionBar>
+        <ActionBar title="New Import" icon="" style="background-color:#3b3b47;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+        <StackLayout>
+            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                <StackLayout style="padding:40px;">
+                    <GridLayout rows="*" columns="100,*">
+                        <Label row="0" col="0" text="Product" style="margin-top:65px;" />
+                        <TextField row="0" col="1" hint="hint" text="{{  }}" style="margin:30px;" class="txt-input"/>
+                    </GridLayout>
+                    <GridLayout rows="*" columns="100,*">
+                        <Label row="0" col="0" text="Qty" style="margin-top:65px;" />
+                        <TextField row="0" col="1" hint="hint" text="{{  }}" style="margin:30px;" class="txt-input"/>
+                    </GridLayout>
+                    <GridLayout rows="*" columns="100,*">
+                        <Label row="0" col="0" text="Wharehouse" style="margin-top:65px;" />
+                        <TextField row="0" col="1" hint="hint" text="{{  }}" style="margin:30px;" class="txt-input"/>
+                    </GridLayout>
+                    <GridLayout rows="*" columns="100,*">
+                        <Label row="0" col="0" text="Details" style="margin-top:65px;" />
+                        <TextField row="0" col="1" hint="hint" text="{{  }}" style="margin:30px;" class="txt-input"/>
+                    </GridLayout>
+
+                    <Button text="Add" tap="{{addNewImport}}" style="margin:10px;background-color:#3b3b47;color:orange;" />
+        
+                    
+                </StackLayout>
+            </Card:CardView>
+            
+        </StackLayout>
+    </ScrollView>
+
+    
+</Page>

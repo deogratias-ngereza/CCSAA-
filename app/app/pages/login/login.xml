@@ -1,0 +1,52 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    xmlns:stBar="nativescript-statusbar"
+    actionBarHidden="true"
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo">
+
+    <stBar:StatusBar ios:barStyle="white" android:barStyle="white" />
+
+
+    <ScrollView>
+        
+        <StackLayout style="margin:10px;">
+            
+
+            <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:20;" />
+
+            <!-- Loading Indicator -->
+            <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                <ActivityIndicator style="margin-top:50;" class="base_color" busy="{{loadingStatus}}" />
+            </StackLayout>
+            
+           
+            <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}" style="margin-top:30;" > 
+                <TextField hint="mfano. 0688059688" text="{{ userLoginObj.phone_no }}" keyboardType="number" style="margin:20px;" class="txt-input"/>
+
+                <TextField hint="Namba ya siri" text="{{ userLoginObj.password }}" style="margin:20px;" secure="true" class="txt-input" />
+                
+               
+
+                <Button text="Ingia" tap="login" style="margin:10px;color:white;" class="base_back_color"/>
+
+                <StackLayout orientation="Horizontal">
+                    <Label text="Fungua Akaunti Mpya" tap="goSignUpPage" textWrap="true" style="text-align:right;width:40%;color:#4269dd;font-size:16px;margin-top:20px;margin-right:20px;" />
+                    <Label text="Nimesahau Password?" tap="goRecoverPage" textWrap="true" style="text-align:left;width:60%;font-size:16px;margin-top:20px;margin-left:20px;" class="base_color"/>
+                </StackLayout>
+
+                <Label visibility="{{ showResendOtpStatus ? 'visible' : 'collapsed' }}" text="Validate OTP" tap="{{goResendOTP}}" textWrap="true" style="text-align:center;color:orange;font-size:20px;margin-top:25px;" />
+
+            
+
+
+                <Label text="GMTech Consult LTD" textWrap="true" style="text-align:center;color:gray;font-size:10px;margin-top:20px;" />
+                
+            </StackLayout>
+            
+        </StackLayout>
+    </ScrollView>
+
+    
+    
+</Page>

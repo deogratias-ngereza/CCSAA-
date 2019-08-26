@@ -1,0 +1,40 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+    
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Help" icon="" style="background-color:#B9161C;color:white;">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ goBack }}" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <GridLayout rows="auto,*" columns="*">
+
+
+        <ScrollView row="1">
+            <StackLayout width="100%" height="100%" style="padding:30px;">
+                
+                <Label text="Help page" textWrap="true" />
+                
+
+               
+
+
+            </StackLayout>
+        </ScrollView>
+        
+    </GridLayout>
+
+
+
+
+</Page>

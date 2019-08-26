@@ -1,0 +1,25 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" 
+loaded="onLoaded" 
+xmlns:stBar="nativescript-statusbar"
+navigatedTo="onNavigatedTo">
+    
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Track &Trace" icon="" style="color:white;" class="base_bg_color">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems style="color:white;">
+                </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+   
+    <StackLayout style="width:100%;height:100%;">
+         <!--<WebView src="http://35.154.245.16:5001/where_am_i" style="width:100%;height:100%;"/>-->
+         <WebView src="http://35.154.93.158:5001/where_am_i" style="width:100%;height:100%;"/>
+         
+    </StackLayout>
+    
+</Page>

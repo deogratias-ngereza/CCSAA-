@@ -1,0 +1,60 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+    
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Notifications" icon="" style="color:white;" id="actionBar">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ goBack }}" />
+            <ActionBar.actionItems>
+                <ActionItem text="reload" style="color:white;" tap="{{getSingleManifest}}" ios.position="left" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <GridLayout rows="auto,*" columns="*">
+
+
+        <ScrollView>
+            <StackLayout style="height:100%;" height="100%">
+                 <!-- Loading Indicator -->
+                <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                    <ActivityIndicator style="margin-top:50;" class="base_color" busy="{{loadingStatus}}" />
+                </StackLayout>
+            
+
+                <Label text="All notifications will be here." textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
+                
+
+                <Card:CardView style="height:100%;" visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}" class="cardStyle" margin="10" elevation="40" radius="5">
+                   
+                   
+
+                    <GridLayout rows="*,auto" columns="*" style="padding:40px;height:100%;">
+                        <ListView row="0" col="0" items="{{ HISTORY_DATA }}" style="height:100%;"  loaded="onListLoaded" itemLoading="onItemLoading" itemTap="{{onItemTap}}">
+                            <ListView.itemTemplate>
+                                <StackLayout>
+                                    <Label text="{{status}}" textWrap="true" />
+                                    <Label text="{{description}}" textWrap="true" />
+                                    <Label text="{{ created_at }}" textWrap="true" />
+                                </StackLayout>
+                            </ListView.itemTemplate>
+                        </ListView>
+                        <Button row="1" col="0" text="Reload" tap="{{reqDelivery}}" style="margin:10px;;color:white;" class="base_back_color" />
+                    </GridLayout>
+                </Card:CardView>
+            </StackLayout>
+        </ScrollView>
+        
+    </GridLayout>
+
+
+
+
+</Page>

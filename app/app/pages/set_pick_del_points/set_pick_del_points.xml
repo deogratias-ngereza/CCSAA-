@@ -1,0 +1,115 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+     xmlns:dd="nativescript-drop-down"
+    actionBarHidden="true"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Set Address" icon="" style="background-color:#B9161C;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+        <StackLayout>
+            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                
+                <StackLayout style="padding:40px;">
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+                    
+                    <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                        <ActivityIndicator style="margin-top:50;" class="base_color" busy="{{loadingStatus}}" />
+                    </StackLayout>
+
+                    <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:30px;">
+                            <Label row="0" col="0" text="Country" style="margin-top:35px;" />
+                            <dd:DropDown row="0" col="1" items="{{ CURRENT_COUNTRIES }}" selectedIndex="{{ selectedCountryIndex }}" 
+                                selectedIndexChanged="countryDropDownSelectedIndexChanged" hint="country" style="font-size:20px;padding:10px;"
+                            />
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:60px;">
+                            <Label row="0" col="0" text="Region" style="margin-top:35px;" />
+                             <dd:DropDown row="0" col="1" items="{{ CURRENT_REGIONS }}" selectedIndex="{{ selectedRegionIndex }}" 
+                                selectedIndexChanged="regionDropDownSelectedIndexChanged" hint="region" style="font-size:20px;padding:10px;"
+                        />
+                        </GridLayout>
+
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:60px;">
+                            <Label row="0" col="0" text="District" style="margin-top:35px;" />
+                             <dd:DropDown row="0" col="1" items="{{ CURRENT_DISTRICTS }}" selectedIndex="{{ selectedDistrictIndex }}" 
+                                selectedIndexChanged="districtDropDownSelectedIndexChanged" hint="district" style="font-size:20px;padding:10px;"
+                        />
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:60px;">
+                            <Label row="0" col="0" text="Area" style="margin-top:35px;" />
+                             <dd:DropDown row="0" col="1" items="{{ CURRENT_COVERED_AREAS }}" selectedIndex="{{ selectedCoveredAreaIndex }}" 
+                                selectedIndexChanged="coveredAreaDropDownSelectedIndexChanged" hint="location" style="font-size:20px;padding:10px;"
+                        />
+                        </GridLayout>
+
+
+
+
+                        
+                       
+
+
+                        <!--<GridLayout rows="*" columns="100,*" style="margin-top:20px;">
+                            <Label row="0" col="0" text="Mkoa" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Mkoa" tap="{{pickRegion}}" text="{{ region }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Wilaya" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Wilaya" text="{{  district }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Simu #" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="mfano. 0688059688" text="{{  phone }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>-->
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:35px;">
+                            <Label row="0" col="0" text="Sender/Receiver" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Mtumaji/Mpokeaji" text="{{ name }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:35px;">
+                            <Label row="0" col="0" text="Location" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Mahali unapoishi" text="{{  location }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:35px;">
+                            <Label row="0" col="0" text="Phone" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Namba ya simu" text="{{  phone }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <Button text="Set" tap="{{applySet}}" style="margin:10px;color:white;" class="base_back_color" />
+
+                        <Label text="Bonyeza kitufe cha set kutunza kumbukumbu zako." textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
+                
+
+                    </StackLayout>
+
+                </StackLayout>
+            </Card:CardView>
+        </StackLayout>
+    </ScrollView>
+
+    
+</Page>

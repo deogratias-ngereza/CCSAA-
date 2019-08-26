@@ -1,0 +1,105 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    actionBarHidden="true"
+    navigatedTo="onNavigatedTo"
+    xmlns:ns="nativescript-carousel"
+    xmlns:Card="nativescript-cardview"
+    xmlns:i="nativescript-image-cache-it"
+    >
+    <Page.actionBar>
+        <ActionBar title="Home" icon="" style="background-color:#B9161C;color:white;">
+            <NavigationButton text="Back" icon="res://ic_menu_back" android.systemIcon="ic_menu_add" tap="{{onShowDrawerTap}}" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar> 
+
+    <GridLayout rows="*" columns="*">
+        
+        
+
+        <ScrollView row="0">
+
+
+            <StackLayout>
+
+               <!-- <StackLayout row="0" style="height:400px;">
+                    <ns:Carousel height="100%" width="100%" android:indicatorAnimation="slide" indicatorColor="blue" finite="true" autoPagingInterval="1" showIndicator="true" verticalAlignment="top" finite="true" bounce="false">                
+                        <ns:CarouselItem id="slide1" backgroundColor="white" verticalAlignment="middle">
+                            <!-<Label text="Slide 1" backgroundColor="#50000000" horizontalAlignment="center"/>-=->
+                            <Image src="http://posta.co.tz/center.png" stretch="aspectFill" />
+                            <!-<i:ImageCacheIt stretch="aspectFill" imageUri="http://posta.co.tz/center.png" resize="1500,1000" placeHolder="assets/images/ph.png" errorHolder="assets/images/broken.png"/>
+                            -=->
+                        </ns:CarouselItem>
+                        <ns:CarouselItem id="slide2" backgroundColor="white" verticalAlignment="middle">
+                            <Image src="http://posta.co.tz/track.png" stretch="aspectFill" />
+                            <-<i:ImageCacheIt stretch="aspectFill"  placeHolder="assets/images/ph.png" errorHolder="assets/images/broken.png" resize="1500,1500" imageUri="http://posta.co.tz/track.png"/>
+                            -=->
+                        </ns:CarouselItem>
+                    </ns:Carousel>
+                </StackLayout> -->
+
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <grid-layout rows="100, auto" columns="auto, auto, *">
+                        <!--<image src="http://www.glinsurancetz.com/wp-content/uploads/2016/09/emjey.png" stretch="aspectFill" colSpan="3" row="0" />
+                        -->
+                        <image src="res://logo" width="240" stretch="aspectFill" colSpan="3" row="0"/>
+                        <label text="" class="info" textWrap="true" row="1" colSpan="3" />
+                        
+                    </grid-layout>
+                </Card:CardView>
+
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <grid-layout rows="100, auto" columns="auto, auto, *">
+                        <image src="https://source.unsplash.com/user/erondu/1600x900" stretch="aspectFill" colSpan="3" row="0" />
+                        
+                        <label text="" class="info" textWrap="true" row="1" colSpan="3" />
+                        
+                    </grid-layout>
+                </Card:CardView>
+
+               
+
+
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <grid-layout rows="*,*,*" columns="*,*"> <!--&#xf2bd;-->
+                        <button row="0" col="0" tap="{{ mailsDispatchPage }}" text="Mails" class="dash_menu_opt_btn font-awesome"> </button>
+                        <button row="0" col="1" tap="{{ notificationPage }}" text="Notifications  " class="dash_menu_opt_btn font-awesome"></button>
+                        <button row="1" col="0" tap="{{ pickUpPage }}" text="Pickups  " class="dash_menu_opt_btn font-awesome"></button>
+                        <button row="1" col="1" tap="{{ deliveriesPage }}" text="Deliveries  " class="dash_menu_opt_btn font-awesome"></button>
+                        <button row="2" col="0" tap="{{ trackPage }}" text="Track  " class="dash_menu_opt_btn font-awesome"></button>
+                        <button row="2" col="1" tap="{{ profilePage }}" text="Profile  " class="dash_menu_opt_btn font-awesome"></button>
+
+
+                        <!--<image src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSM_EZ01998RAFBc0rVmjGIyYVlfxVjXthZyESOfaQ2nmvX3-N9" stretch="aspectFill" colSpan="3" row="0" />
+                        <label text="" class="info" textWrap="true" row="1" colSpan="3" />-->
+                        
+                    </grid-layout>
+                </Card:CardView>
+ 
+
+                 <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <StackLayout orientation="horizontal">
+                        <button tap="{{ activateAccntPage }}" text="ACTIVATE ACCOUNT" class="dash_menu_opt_btn"> </button>
+                        <button tap="{{ setAddressPage }}" text="Addresses" class="dash_menu_opt_btn"> </button>
+                    </StackLayout>
+                </Card:CardView>
+
+
+
+
+            </StackLayout>
+        </ScrollView>
+
+
+        <!--<Button row="1" text="Track & Trace" tap="{{ trackPage }}" style="color:white;" class="base_back_color"/>-->
+    </GridLayout>
+
+
+
+    
+
+
+
+    
+</Page>

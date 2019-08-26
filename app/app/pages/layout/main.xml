@@ -1,0 +1,60 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo"
+    xmlns:nsDrawer="nativescript-ui-sidedrawer"
+    actionBarHidden="false"
+    xmlns:x="nativescript-statusbar" 
+    >
+    <x:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+    <Page.actionBar>
+        <!--<ActionBar title="Emjey Courier" icon="" style="color:white;" id ="actionBar">
+            <NavigationButton id="menuCollapseIco" text="Back" icon="res://ic_menu_add" android.systemIcon="ic_menu_add" tap="{{onDrawerToggle}}"/>
+            
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>-->
+
+        <ActionBar title="Emjey Courier" id ="actionBar">
+            <StackLayout orientation="horizontal"
+                ios:horizontalAlignment="center"
+                android:horizontalAlignment="left">
+                <Image src="res://logo" id="menuCollapseIco" class="action-image" tap="{{onDrawerToggle}}"></Image>
+                <Label text="Emjey Courier"  class="action-label"></Label>
+            </StackLayout>
+        </ActionBar>
+    </Page.actionBar>
+
+    
+    <nsDrawer:RadSideDrawer id="sideDrawer" showOverNavigation="true">
+        <nsDrawer:RadSideDrawer.drawerContent>
+            <StackLayout class="base_color" style="color:red;" id="sideBarDrawer">
+                <StackLayout height="56" style="text-align: center; vertical-align: center;">
+                    <Label text="Our Menu" class="nav_side_bar_color"/>
+                </StackLayout>
+                <StackLayout>
+                    <Label tap="{{ onCloseDrawerTap }}" text="Dashboard" padding="10" class="nav_side_bar_color"/>
+                    <Label tap="{{ pickUpPage }}" text="Schedule pickup" padding="10" class="nav_side_bar_color"/>
+                    <!--<Label tap="{{ deliveriesPage }}" text="Schedule delivery" padding="10" class="nav_side_bar_color"/>-->
+                    <!--<Label tap="{{ link2PhyBoxPage }}" text="Link to physical box" padding="10" class="nav_side_bar_color"/>-->
+                    <Label tap="{{ notificationPage }}" text="Notifications" padding="10" class="nav_side_bar_color"/>
+                    <!--<Label tap="{{ mailsDispatchPage }}" text="Mails Dispatch" padding="10" class="nav_side_bar_color"/>-->
+                    <Label tap="{{ trackPage }}" text="Track & Trace" padding="10" class="nav_side_bar_color"/>
+                    <Label tap="{{ profilePage }}" text="Profile" padding="10" class="nav_side_bar_color"/>
+                    <Label tap="{{ changePassword }}" text="Change Password" padding="10" class="nav_side_bar_color"/>
+                    <Label tap="{{ helpPage }}" text="Help" padding="10" class="nav_side_bar_color"/>
+                    
+                    <Label text="Logout" tap="{{logout}}" padding="10" class="nav_side_bar_color"/>
+                </StackLayout>
+                <Label text="Close(X)" color="lightgray" padding="10" style="horizontal-align: center" tap="{{ onCloseDrawerTap }}"/>
+
+            </StackLayout>
+        </nsDrawer:RadSideDrawer.drawerContent>
+
+        <nsDrawer:RadSideDrawer.mainContent>
+            <Frame defaultPage="app/pages/welcome/welcome">
+            </Frame>
+        </nsDrawer:RadSideDrawer.mainContent>
+        </nsDrawer:RadSideDrawer>
+
+</Page>

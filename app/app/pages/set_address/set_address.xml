@@ -1,0 +1,112 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+    
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Addresses" icon="" style="color:white;" id="actionBar">
+            <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ goBack }}" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <GridLayout rows="auto,*" columns="*">
+
+
+        <ScrollView row="1">
+            <StackLayout width="100%" style="padding:30px;">
+                
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <StackLayout style="padding:40px;">
+
+                        <StackLayout orientation="horizontal" style="background-color:#8c998b;">
+                            <Label text="Pickup Address(Kuchukulia)" tap="{{ goSetPickPoint }}"  style="color:white;width:70%;padding:10px;" align="left" textWrap="true" />
+                            <Label text="Set" tap="{{ goSetPickPoint }}" style="color:white;text-align:right;width:30%;padding:10px;font-size:20px;" textWrap="true" />
+                           
+                        </StackLayout>
+                        <StackLayout style="padding:10px;">
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Mtumaji" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ PickUpObj.name }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Mkoa" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ PickUpObj.region_obj.name }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Wilaya" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ PickUpObj.district_obj.name }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Phone" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ PickUpObj.phone }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Mahali husika" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ PickUpObj.covered_area_obj.name + ' - ' + PickUpObj.specific_area }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                           
+                        </StackLayout>
+                    </StackLayout>
+                </Card:CardView>
+
+                
+
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <StackLayout style="padding:40px;">
+
+                        <StackLayout orientation="horizontal" style="" class="base_bg_color">
+                            <Label text="Delivery Address(Pakufikishia)" tap="{{goSetDeliveryPoint}}"  style="color:white;width:70%;padding:10px;" align="left" textWrap="true" />
+                            <Label text="Set" tap="{{goSetDeliveryPoint}}" style="color:white;text-align:right;width:30%;padding:10px;font-size:20px;" textWrap="true" />
+                           
+                        </StackLayout>
+                        <StackLayout style="padding:10px;">
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Mpokeaji" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ DeliveryObj.name }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Mkoa" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ DeliveryObj.region_obj.name }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Wilaya" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ DeliveryObj.district_obj.name }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Phone" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ DeliveryObj.phone }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                            <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                                <Label row="0" col="0" text="Mahali husika" style="margin-top:5px;" />
+                                <Label row="0" col="1" text="{{ DeliveryObj.covered_area_obj.name + ' - ' + DeliveryObj.specific_area }}" style="margin:5px;" textWrap="true" />
+                            </GridLayout>
+                           
+                        </StackLayout>
+                    </StackLayout>
+                </Card:CardView>
+
+
+                <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                    <StackLayout style="padding:40px;">
+                        <Label text="Bonyeza kitufe cha juu kulia katika kila chaguzi(set),Hii itakurahisishia kuweka habari zako pale utakapohitaji kutuma au kupokea mzigo." textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
+                
+                    </StackLayout>
+                </Card:CardView>
+
+            </StackLayout>
+        </ScrollView>
+        
+    </GridLayout>
+
+
+
+
+</Page>

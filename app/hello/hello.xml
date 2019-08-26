@@ -1,0 +1,20 @@
+<Page xmlns="http://www.nativescript.org/tns.xsd" loaded="onLoaded" navigatedTo="onNavigatedTo" class="page">
+
+    
+    <StackLayout>
+        <TextField hint="msg" text="{{ msg }}" />
+        
+        <Label text="{{ msg }}" textWrap="true" style="margin-top:100px;color:red;font-size:70px;" />
+        <ListView id="myList" items="{{ books }}"  loaded="onLoaded" itemLoading="onItemLoading" itemTap="onItemTap">
+            <ListView.itemTemplate>
+                <Label text="{{ name }}" textWrap="true" />
+                
+            </ListView.itemTemplate>
+        </ListView>
+
+        <Button text="Change [0]" tap="{{ changeFirstName }}" />
+        
+
+    </StackLayout>>
+
+</Page>

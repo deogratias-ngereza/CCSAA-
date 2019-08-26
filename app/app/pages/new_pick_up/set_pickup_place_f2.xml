@@ -1,0 +1,151 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    actionBarHidden="true"
+    xmlns:dd="nativescript-drop-down"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3f3b3b" />
+
+    <Page.actionBar>
+        <ActionBar title="Set Address" icon="" style="background-color:#B9161C;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+        <StackLayout>
+
+            <!-- old set location -->
+            <Card:CardView visibility="{{ !SHOW_NEW_PICK_UP_FORM ? 'visible' : 'collapsed' }}" class="cardStyle" margin="10" elevation="40" radius="5">
+                <StackLayout style="padding:40px;">
+
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+
+                    <Label text="Pickup location(step 2/3)" style="color:#bab8b8;font-size:20px;align:center;" textWrap="true" />
+                    
+
+                    <!--<StackLayout orientation="horizontal" style="background-color:#8c998b;">
+                        <Label text="Pickup Address(Kuchukulia)" tap="{{ goSetPickPoint }}"  style="color:white;width:70%;padding:10px;" align="left" textWrap="true" />
+                        
+                    </StackLayout>-->
+                    <StackLayout style="padding:10px;">
+                        
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                            <Label row="0" col="0" text="Mkoa" style="margin-top:5px;" />
+                            <Label row="0" col="1" text="{{ PickUpObj.region_obj.name }}" style="margin:5px;" textWrap="true" />
+                        </GridLayout>
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                            <Label row="0" col="0" text="Wilaya" style="margin-top:5px;" />
+                            <Label row="0" col="1" text="{{ PickUpObj.district_obj.name }}" style="margin:5px;" textWrap="true" />
+                        </GridLayout>
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                            <Label row="0" col="0" text="Phone" style="margin-top:5px;" />
+                            <Label row="0" col="1" text="{{ PickUpObj.phone }}" style="margin:5px;" textWrap="true" />
+                        </GridLayout>
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                            <Label row="0" col="0" text="Mahali husika" style="margin-top:5px;" />
+                            <Label row="0" col="1" text="{{ PickUpObj.covered_area_obj.name + ' - ' + PickUpObj.specific_area }}" style="margin:5px;" textWrap="true" />
+                        </GridLayout>
+
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                            <Label tap="{{useNewPickUp}}" row="0" col="0" text="Change Address?" style="margin-top:70px;" />
+                            <Button tap="{{ usePreviousPickUpAddress }}" row="0" col="1" text="Pick Here" style="margin:10px;;color:white;" class="base_back_color"></Button>
+                        </GridLayout> 
+                        
+                    </StackLayout>
+                </StackLayout>
+            </Card:CardView>
+
+
+            <!-- set new pick up location -->
+            <Card:CardView class="cardStyle" visibility="{{ SHOW_NEW_PICK_UP_FORM ? 'visible' : 'collapsed' }}" margin="10" elevation="40" radius="5">
+                <StackLayout style="padding:40px;">
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+                    <!-- Loading Indicator -->
+                    <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                        <ActivityIndicator style="margin-top:50;margin-bottom:50;" class="base_color" busy="{{loadingStatus}}" />
+                    </StackLayout>
+            
+
+                    <!--<Label text="Jisajili " style="color:#bab8b8;font-size:20px;align:center;" textWrap="true" />-->
+                    
+                    <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}" id="formArea">
+                        
+                         <Label text="Pickup location(step 2/3)" style="color:#bab8b8;font-size:20px;align:center;" textWrap="true" />
+                    
+
+                         <GridLayout rows="*" columns="100,*" style="margin-top:30px;">
+                            <Label row="0" col="0" text="Country" style="margin-top:35px;" />
+                            <dd:DropDown row="0" col="1" items="{{ CURRENT_COUNTRIES }}" selectedIndex="{{ selectedCountryIndex }}" 
+                                selectedIndexChanged="countryDropDownSelectedIndexChanged" hint="country" style="font-size:20px;padding:10px;"
+                            />
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:60px;">
+                            <Label row="0" col="0" text="Region" style="margin-top:35px;" />
+                             <dd:DropDown row="0" col="1" items="{{ CURRENT_REGIONS }}" selectedIndex="{{ selectedRegionIndex }}" 
+                                selectedIndexChanged="regionDropDownSelectedIndexChanged" hint="region" style="font-size:20px;padding:10px;"
+                        />
+                        </GridLayout>
+
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:60px;">
+                            <Label row="0" col="0" text="District" style="margin-top:35px;" />
+                             <dd:DropDown row="0" col="1" items="{{ CURRENT_DISTRICTS }}" selectedIndex="{{ selectedDistrictIndex }}" 
+                                selectedIndexChanged="districtDropDownSelectedIndexChanged" hint="district" style="font-size:20px;padding:10px;"
+                        />
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:60px;">
+                            <Label row="0" col="0" text="Area" style="margin-top:35px;" />
+                             <dd:DropDown row="0" col="1" items="{{ CURRENT_COVERED_AREAS }}" selectedIndex="{{ selectedCoveredAreaIndex }}" 
+                                selectedIndexChanged="coveredAreaDropDownSelectedIndexChanged" hint="location" style="font-size:20px;padding:10px;"
+                        />
+                        </GridLayout>
+
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:35px;">
+                            <Label row="0" col="0" text="Sender" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Jina la mtumaji" text="{{ sender_name }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:35px;">
+                            <Label row="0" col="0" text="Location" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Mahali unapoishi" text="{{ location }}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="100,*" style="margin-top:35px;">
+                            <Label row="0" col="0" text="* Phone" style="margin-top:35px;" />
+                            <TextField row="0" col="1" hint="Namba ya simu" text="{{sender_phone}}" style="margin:20px;" class="txt-input"/>
+                        </GridLayout>
+
+
+                       
+                        <GridLayout rows="*,*" columns="100,*" style="margin-top:20px;">
+                            <Label tap="{{useNewPickUp}}" row="0" col="0" text="Change?" style="margin-top:70px;" />
+                            <Button tap="{{useNewPickUpAddress}}" row="0" col="1" text="Set Pickup" style="margin:10px;;color:white;" class="base_back_color"></Button>
+                        </GridLayout>
+
+                       <!-- <Button text="TUMA MAOMBI" tap="{{requestPickup}}" style="margin:10px;;color:white;" class="base_back_color" />
+                        -->
+                        <Label text="Bonyeza kitufe hapo juu tuje tukusaidie kuchukua mzigo mahali ulipo." textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
+
+                    </StackLayout>
+                   
+        
+                    
+                </StackLayout>
+            </Card:CardView>
+            
+        </StackLayout>
+    </ScrollView>
+
+    
+</Page>

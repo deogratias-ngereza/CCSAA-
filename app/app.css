@@ -1,0 +1,85 @@
+﻿/*
+In NativeScript, the app.css file is where you place CSS rules that
+you would like to apply to your entire application. Check out
+http://docs.nativescript.org/ui/styling for a full list of the CSS
+selectors and properties you can use to style UI components.
+
+/*
+In many cases you may want to use the NativeScript core theme instead
+of writing your own CSS rules. For a full list of class names in the theme
+refer to http://docs.nativescript.org/ui/theme. 
+The imported CSS rules must precede all other types of rules.
+*/
+@import '~nativescript-theme-core/css/core.light.css';
+
+/*
+The following CSS rule changes the font size of all UI
+components that have the btn class name.
+*/
+.btn {
+    font-size: 18;
+} 
+.font-awesome {
+    font-family: "FontAwesome";
+}
+.fa {
+    font-family: "FontAwesome";
+}
+.txt-input{
+    border-bottom-width: 1;
+    border-color:#b9b9b9; 
+}
+.base_color{
+    color:#229B89;
+}
+.base_bg_color{
+    background-color: #229B89;
+} 
+
+
+.shortcut_btn{
+    height: 180px;width:50%;
+    color:white;
+    background-color: #229B89;
+}
+.status_btn{
+    height: 180px;width:100%;
+    color:white;
+    background-color: #229B89;
+}
+.mailsBtn{
+    background-color: #229B89;
+    color:white;
+    font-size:10px;
+}
+
+
+.nav_side_bar_color{
+    color:white;
+}
+
+.dash_menu_opt_btn{
+    width: 50%;
+    height: 150px;
+    background-color: #229B89;
+    color:white;
+}
+.base_back_color{
+    background-color: #229B89;
+}
+
+
+/*action bar image with label*/
+.action-image {
+    width: 40;
+    height: 40;
+    vertical-align: center;
+}
+
+.action-label {
+    color: white;
+    font-size: 24;
+    /*font-weight: bold;*/
+    vertical-align: center;
+    margin-left:20px;
+}

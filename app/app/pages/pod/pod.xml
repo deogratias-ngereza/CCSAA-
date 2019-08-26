@@ -1,0 +1,66 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    xmlns:DrawingPad="nativescript-drawingpad"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview">
+
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3b3b47" />
+
+    <Page.actionBar>
+        <ActionBar title="POD" icon="" style="background-color:#3b3b47;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems>
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+        <StackLayout>
+            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                <StackLayout style="padding:40px;">
+
+                     <!-- Loading Indicator -->
+                    <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
+                        <ActivityIndicator style="margin-top:30;color:orange;" busy="{{loadingStatus}}" />
+                    </StackLayout>
+
+
+                    <!-- main ui -->
+                    <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
+                         <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Name" style="margin-top:65px;" />
+                            <TextField row="0" col="1" hint="hint" text="{{  PODObj.receiver_name }}" style="margin:30px;" class="txt-input"/>
+                        </GridLayout>
+                        <GridLayout rows="*" columns="100,*">
+                            <Label row="0" col="0" text="Phone" style="margin-top:65px;" />
+                            <TextField row="0" col="1" hint="hint" text="{{  PODObj.receiver_phone }}" style="margin:30px;" class="txt-input"/>
+                        </GridLayout>
+                        <Button text="clear sign" tap="{{clearDrawings}}" style="margin:10px;" />
+            
+                        <GridLayout rows="*" columns="*" style="background-color:#e2dede;margin:20px;">
+                            <DrawingPad:DrawingPad row="0" col="0"
+                                height="300"
+                                id="drawingPad"
+                                penColor="black" penWidth="5" />
+                        </GridLayout>
+
+                        <Button text="Confirm" tap="{{confirm}}" style="margin:10px;background-color:#3b3b47;color:orange;" />
+            
+                    </StackLayout>
+                    <!-- /main ui -->
+
+                   
+
+                    
+                </StackLayout>
+            </Card:CardView>
+            
+        </StackLayout>
+    </ScrollView>
+
+    
+</Page>

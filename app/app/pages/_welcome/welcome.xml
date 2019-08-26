@@ -1,0 +1,85 @@
+<Page 
+    xmlns="http://www.nativescript.org/tns.xsd" 
+    loaded="onLoaded" 
+    navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
+    xmlns:stBar="nativescript-statusbar"
+    xmlns:Card="nativescript-cardview"
+    >
+    
+    <stBar:StatusBar ios:barStyle="light" android:barStyle="#3b3b47" />
+
+    <Page.actionBar>
+        <ActionBar title="Mss Courier" icon="" style="background-color:#3b3b47;color:white;">
+            <NavigationButton text="Back" icon="" tap="" />
+            <ActionBar.actionItems style="color:white;">
+                <ActionItem icon="" text="About" tap="" ios.position="popup" android.position="popup" />
+                <ActionItem icon="" text="Logout" tap="{{ logout }}" ios.position="popup" android.position="popup" />
+            </ActionBar.actionItems>
+        </ActionBar>
+    </Page.actionBar>
+
+
+
+    <ScrollView>
+
+        <StackLayout>
+            
+            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                <grid-layout rows="100, auto" columns="auto, auto, *">
+                    <image src="res://logo" stretch="aspectFill" colSpan="3" row="0" />
+                    <label text="" class="info" textWrap="true" row="1" colSpan="3" />
+                    
+                </grid-layout>
+            </Card:CardView>
+
+
+            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                <grid-layout rows="*,*,*" columns="auto,*,*" style="padding:30px;">
+                    
+                    <!--<Label text="&#xf2bd;" class="fa" row="0" col="0" textWrap="true" style="text-align:center;font-size:30px;border:solid;padding:20px;" />-->
+                    <Label text="" class="fa" row="0" col="0" textWrap="true" style="text-align:center;font-size:30px;border:solid;padding:20px;" />
+                    <Label text="Name" class="fa" row="0" col="1" textWrap="true" style="text-align:left;font-size:18px;border:solid;margin-bottom:10px;margin-top:42px;" />
+                    <Label text="{{ currentUserObj.first_name + ' ' + currentUserObj.last_name }}" row="0" col="2" textWrap="true" style="color:orange;text-align:left;font-size:15px;border:solid;margin-bottom:10px;margin-top:30px;" />
+
+                    <!--<Label text="&#xf015;" class="fa" row="1" col="0" textWrap="true" style="text-align:center;font-size:30px;border:solid;padding:20px;" />-->
+                    <Label text="" class="fa" row="1" col="0" textWrap="true" style="text-align:center;font-size:30px;border:solid;padding:20px;" />
+                    <Label text="Center" class="fa" row="1" col="1" textWrap="true" style="text-align:left;font-size:18px;border:solid;margin-bottom:10px;margin-top:42px;" />
+                    <Label text="{{ currentUserObj.warehouse.name }}" row="1" col="2" textWrap="true" style="color:orange;text-align:left;font-size:15px;border:solid;margin-bottom:10px;margin-top:30px;" />
+
+
+                    <!--<Label text="&#xf05a;" class="fa" row="2" col="0" textWrap="true" style="text-align:center;font-size:30px;border:solid;padding:20px;" />-->
+                    <Label text="" class="fa" row="2" col="0" textWrap="true" style="text-align:center;font-size:30px;border:solid;padding:20px;" />
+                    <Label text="Role" class="fa" row="2" col="1" textWrap="true" style="text-align:left;font-size:18px;border:solid;margin-bottom:10px;margin-top:42px;" />
+                    <Label text="{{ currentUserObj.role }}" row="2" col="2" textWrap="true" style="color:orange;text-align:left;font-size:15px;border:solid;margin-bottom:10px;margin-top:30px;" />
+
+
+                </grid-layout>
+            </Card:CardView>
+
+
+            <!--<Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
+                <grid-layout rows="*,*" columns="*,*">
+                    <Label text="###" row="0" col="0" textWrap="true" style="text-align:center;font-size:60px;border:solid;" />
+                    <Label text="0" row="0" col="1" textWrap="true" style="text-align:center;font-size:60px;border:solid;"/>
+                    <Label text="Received" row="1" col="0" textWrap="true" style="text-align:center;font-size:15px;border:solid;margin-bottom:10px;"/>
+                    <Label text="Deliveries" row="1" col="1" textWrap="true" style="text-align:center;font-size:15px;border:solid;margin-bottom:10px;"/>
+                </grid-layout>
+            </Card:CardView>-->
+
+
+ <!--<grid-layout rows="*" columns="*,*">
+                <Button row="0" col="0" text="Deliveries" tap="{{ goToDeliveries }}" style="background-color:#3b3b47;color:white;color:orange;border-radius:5px;width:400px;"/>
+               <Button row="0" col="1" text="Pickups" tap="{{ goToImports }}" style="background-color:#3b3b47;color:white;color:orange;border-radius:5px;width:400px;"/>
+            
+            </grid-layout>-->
+            <Button text="Deliveries" tap="{{goToDeliveries}}" style="margin:50px;background-color:#3b3b47;color:orange;" />
+            <Button text="Track" tap="{{goTrack}}" style="margin:50px;background-color:#3b3b47;color:orange;" />
+        
+
+        </StackLayout>
+
+        
+    </ScrollView>
+
+
+</Page>
