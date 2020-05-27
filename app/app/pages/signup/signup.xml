@@ -22,7 +22,7 @@
         <StackLayout>
             <Card:CardView class="cardStyle" margin="8" elevation="40" radius="5">
                 <StackLayout style="padding:10px;">
-                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:25;" />
                     
                     <!-- Loading Indicator -->
                     <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
@@ -35,40 +35,48 @@
                     
                     <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
                         <GridLayout rows="*" columns="80,*" style="margin-top:20px;">
-                            <Label row="0" col="0" text="First Name" style="margin-top:35px;" />
-                            <TextField row="0" col="1" hint="Jina la mwanzo" text="{{  signUpObj.first_name }}" style="margin:20px;" class="txt-input"/>
+                            <Label row="0" col="0" text="*First Name" style="margin-top:30px;" />
+                            <TextField row="0" col="1" hint="Jina la mwanzo" text="{{  signUpObj.first_name }}" style="margin:3px;" class="txt-input"/>
                         </GridLayout>
-                        <GridLayout rows="*" columns="100,*">
-                            <Label row="0" col="0" text="Last Name" style="margin-top:35px;" />
-                            <TextField row="0" col="1" hint="Jina la mwisho" text="{{  signUpObj.last_name }}" style="margin:20px;" class="txt-input"/>
+                        <GridLayout rows="*" columns="80,*">
+                            <Label row="0" col="0" text="*Last Name" style="margin-top:30px;" />
+                            <TextField row="0" col="1" hint="Jina la mwisho" text="{{  signUpObj.last_name }}" style="margin:3px;" class="txt-input"/>
                         </GridLayout>
-                        <GridLayout rows="*" columns="100,*">
-                            <Label row="0" col="0" text="Phone" style="margin-top:35px;" />
-                            <TextField row="0" col="1" keyboardType="number" hint="mfano. 0688059688" text="{{  signUpObj.phone_no }}" style="margin:20px;" class="txt-input"/>
+                        <GridLayout rows="*" columns="80,*">
+                            <Label row="0" col="0" text="*Phone" style="margin-top:30px;" />
+                            <TextField row="0" col="1" keyboardType="number" hint="mfano. 0688059688" text="{{  signUpObj.phone_no }}" style="margin:3px;" class="txt-input"/>
+                        </GridLayout>
+
+                        <GridLayout rows="*" columns="80,*">
+                            <Label row="0" col="0" text="Email" style="margin-top:30px;" />
+                            <TextField row="0" col="1" hint="mfano. lucas@gmail.com" text="{{  signUpObj.email }}" style="margin:3px;" class="txt-input"/>
                         </GridLayout>
                         
-                        <GridLayout rows="*" columns="100,*">
-                            <Label row="0" col="0" text="Address" style="margin-top:35px;" />
-                            <TextField row="0" col="1" hint="Mahali unapoishi" text="{{  signUpObj.address }}" style="margin:20px;" class="txt-input"/>
+                        <GridLayout rows="*" columns="80,*">
+                            <Label row="0" col="0" text="Address" style="margin-top:30px;" />
+                            <TextField row="0" col="1" hint="Mahali unapoishi" text="{{  signUpObj.address }}" style="margin:3px;" class="txt-input"/>
                         </GridLayout>
-                        <!--<GridLayout rows="*" columns="100,*">
-                            <Label row="0" col="0" text="Email ID" style="margin-top:35px;" />
-                            <TextField row="0" col="1" hint="Email akaunti" text="{{  signUpObj.email }}" style="margin:20px;" class="txt-input"/>
+                        <!--<GridLayout rows="*" columns="80,*">
+                            <Label row="0" col="0" text="Email ID" style="margin-top:30px;" />
+                            <TextField row="0" col="1" hint="Email akaunti" text="{{  signUpObj.email }}" style="margin:3px;" class="txt-input"/>
                         </GridLayout>-->
-                        <GridLayout rows="*" columns="100,*">
-                            <Label row="0" col="0" text="Password" style="margin-top:35px;" />
-                            <TextField row="0" col="1" hint="Namba ya siri" text="{{  signUpObj.password }}" secure="true" style="margin:20px;" class="txt-input"/>
+                        <GridLayout rows="*" columns="80,*">
+                            <Label row="0" col="0" text="*Password" style="margin-top:30px;" />
+                            <TextField row="0" col="1" hint="Namba ya siri" text="{{  signUpObj.password }}" secure="true" style="margin:3px;" class="txt-input"/>
                         </GridLayout>
-                        <GridLayout rows="*" columns="100,*">
-                            <Label row="0" col="0" text="Confirm Password" style="margin-top:35px;" />
-                            <TextField row="0" col="1" hint="Rudia namba ya siri" text="{{  signUpObj.password2 }}" secure="true" style="margin:20px;" class="txt-input"/>
+                        <GridLayout rows="*" columns="80,*">
+                            <Label row="0" col="0" text="*Confirm Password" style="margin-top:30px;" />
+                            <TextField row="0" col="1" hint="Rudia namba ya siri" text="{{  signUpObj.password2 }}" secure="true" style="margin:3px;" class="txt-input"/>
                         </GridLayout>
                         <GridLayout rows="*" columns="*" style="background-color:#e2dede;margin:20px;">
                         
                         </GridLayout>
 
                         <Button text="Jiunge" tap="{{signup}}" style="margin:10px;;color:white;" class="base_back_color" />
-
+                        <StackLayout orientation="Horizontal">
+                            <Label text="Login?" tap="{{goLoginPage}}" textWrap="true" style="text-align:right;width:40%;color:#4269dd;font-size:16px;margin-top:20px;margin-right:20px;" />
+                            <Label text="Verify OTP?" tap="{{goVerifyOTPPage}}" textWrap="true" style="text-align:left;width:60%;font-size:16px;margin-top:20px;margin-left:20px;" class="base_color"/>
+                        </StackLayout>
                         <Label text="Utapokea ujumbe mfupi wenye OTP namba,ingiza OTP namba kuhakiki usajili wako (Ujumbe utatumwa ndani ya dk 5)" textWrap="true" style="text-align:center;color:gray;font-size:13px;margin-top:20px;" />
                 
                     </StackLayout>

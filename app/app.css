@@ -26,8 +26,9 @@ components that have the btn class name.
     font-family: "FontAwesome";
 }
 .txt-input{
-    border-bottom-width: 1;
-    border-color:#b9b9b9; 
+    border-bottom-width: 0;
+    border-color:#b9b9b9;
+    border-bottom-color:#b9b9b9; 
 }
 .base_color{
     color:#229B89;

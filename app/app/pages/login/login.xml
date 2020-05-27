@@ -17,7 +17,7 @@
 
             <!-- Loading Indicator -->
             <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
-                <ActivityIndicator style="margin-top:50;" class="base_color" busy="{{loadingStatus}}" />
+                <ActivityIndicator style="margin-top:10;" class="base_color" busy="{{loadingStatus}}" />
             </StackLayout>
             
            
@@ -35,7 +35,7 @@
                     <Label text="Nimesahau Password?" tap="goRecoverPage" textWrap="true" style="text-align:left;width:60%;font-size:16px;margin-top:20px;margin-left:20px;" class="base_color"/>
                 </StackLayout>
 
-                <Label visibility="{{ showResendOtpStatus ? 'visible' : 'collapsed' }}" text="Validate OTP" tap="{{goResendOTP}}" textWrap="true" style="text-align:center;color:orange;font-size:20px;margin-top:25px;" />
+                <Label visibility="{{ showResendOtpStatus ? 'visible' : 'collapsed' }}" text="Validate OTP" tap="goResendOTP" textWrap="true" style="text-align:center;color:orange;font-size:20px;margin-top:25px;" />
 
             
 

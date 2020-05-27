@@ -39,6 +39,9 @@ exports.getNavigationPathFor = function(page) {
         case 'addresses':
             return './app/pages/set_address/set_address';
             break;
+        case 'verify_otp':
+            return './app/pages/receive_reg_otp/receive_reg_otp';
+            break;
         case 'receive_reg_otp':
             return './app/pages/receive_reg_otp/receive_reg_otp';
             break;
@@ -235,6 +238,18 @@ exports.goRecover = function() {
     frameModule.topmost().navigate({
         moduleName: this.getNavigationPathFor("recover"),
         animated: true,
+        transition: {
+            name: 'slide',
+            duration: 500,
+            curve: 'easeOut'
+        }
+    });
+};
+exports.goVerifyOTP = function() {
+    frameModule.topmost().navigate({
+        moduleName: this.getNavigationPathFor("verify_otp"),
+        animated: true,
+        clearHistory: true,
         transition: {
             name: 'slide',
             duration: 500,

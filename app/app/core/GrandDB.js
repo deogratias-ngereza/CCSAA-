@@ -76,6 +76,8 @@ exports.getCurrentOTPRecCustID = function() {
         return undefined;
     }
 };
+
+
 exports.removeCurrentOTPRecCustID = function() {
     appSettings.remove(currentOTPRecCustID);
 };
@@ -152,7 +154,7 @@ exports.saveCurrentLocation = function(con) {
         appSettings.setString(currentLocation, JSON.stringify(con));
     } else {
         appSettings.setString(currentLocation, JSON.stringify(con));
-    }
+    } 
 };
 //firebase token
 exports.saveCurrentFBToken = function(con) {

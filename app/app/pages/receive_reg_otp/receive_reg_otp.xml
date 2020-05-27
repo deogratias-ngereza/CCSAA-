@@ -2,7 +2,6 @@
     xmlns="http://www.nativescript.org/tns.xsd" 
     loaded="onLoaded" 
     navigatedTo="onNavigatedTo" navigatingTo="onNavigatingTo"
-    background="#B9161C"
     actionBarHidden="true"
     xmlns:stBar="nativescript-statusbar"
     xmlns:Card="nativescript-cardview">
@@ -21,24 +20,24 @@
 
     <ScrollView>
         <StackLayout>
-            <Card:CardView class="cardStyle" margin="10" elevation="40" radius="5">
-                <StackLayout style="padding:40px;">
-                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:30;" />
+            <Card:CardView class="cardStyle" margin="5" elevation="40" radius="5">
+                <StackLayout style="padding:5px;">
+                    <image src="res://logo" stretch="aspectFill" width="180" style="margin-top:15;" />
 
                    <!-- Loading Indicator -->
                     <StackLayout visibility="{{ loadingStatus ? 'visible' : 'collapsed' }}">
-                        <ActivityIndicator style="margin-top:50;margin-bottom:50;color:#B9161C;" busy="{{loadingStatus}}" />
+                        <ActivityIndicator class="base_color" style="margin-bottom:30px;margin-top:10px;" busy="{{loadingStatus}}" />
                     </StackLayout>
             
 
                     <!--<Label text="Ingiza namba ya simu" style="color:#bab8b8;font-size:30px;align:center;" textWrap="true" />-->
                     
                     <StackLayout visibility="{{ !loadingStatus ? 'visible' : 'collapsed' }}">
-                        <GridLayout rows="*" columns="*" style="margin-top:20px;">
-                            <TextField row="0" col="0" keyboardType="number" hint="Ingiza OTP" text="{{  OTPObj.otp }}" style="margin:30px;" class="txt-input"/>
+                        <GridLayout rows="*" columns="*" style="margin-top:10px;">
+                            <TextField row="0" col="0" keyboardType="number" hint="Ingiza OTP" text="{{  OTPObj.otp }}" style="margin:3px;" class="txt-input"/>
                         </GridLayout>
 
-                        <Button text="Hakiki Usajili" tap="{{validate}}" style="margin:10px;;color:white;" class="base_back_color" />
+                        <Button text="Hakiki Usajili" tap="{{validate}}" style="margin:5px;;color:white;" class="base_back_color" />
 
                          <StackLayout orientation="Horizontal">
                             <Label text="Tuma OTP Tena" tap="{{ resendOTP }}" textWrap="true" style="text-align:right;width:40%;color:#4269dd;font-size:16px;margin-top:20px;margin-right:20px;" />

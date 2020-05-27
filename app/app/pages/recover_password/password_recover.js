@@ -42,8 +42,12 @@ exports.onLoaded = function(args) {
  
 
     VM.requestNewPassword = function(){
-        if(VM.userObj.phone_no.length != 10){
+        /*if(VM.userObj.phone_no.length != 10){
             GCustomHelpersModule.getSimpleAlert("Phone Error", "Namba ya simu si sahihi!");
+            return;
+        }*/ 
+        if(VM.userObj.phone_no.length < 5){
+            GCustomHelpersModule.getSimpleAlert("Invalid input", "Namba ya simu/email/account si sahihi!");
             return;
         }
         loaderStatus(1);
@@ -53,14 +57,14 @@ exports.onLoaded = function(args) {
             var contentOBJ = JSON.parse(res.content);
             console.log("[ CODE ] " + res.statusCode);
             if (res.statusCode == 200) {
-                GCustomHelpersModule.getSimpleLongToast("Subiri kidogo,Ujumbe mfupi utatumwa kwenye simu yako");
+                GCustomHelpersModule.getSimpleLongToast("Subiri kidogo,Ujumbe mfupi utatumwa kwenye simu/email yako");
                 GrandNavigator.goLogin();
-            } else if(res.statusCode == 401){
-                GCustomHelpersModule.getSimpleAlert("Error", contentOBJ.msg_data);
+            } else if(res.statusCode == 400){
+                GCustomHelpersModule.getSimpleAlert("Error", contentOBJ.msg);
             }else{
                 GCustomHelpersModule.getSimpleAlert("Error", contentOBJ.msg_data);
             }
-        }, (error) => {
+        }, (error) => { 
             loaderStatus(0);
             console.log("[ ERROR ] " + error);
             GCustomHelpersModule.getSimpleAlert("Server Error", "Sorry server is down for sometimes!");

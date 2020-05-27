@@ -36,8 +36,7 @@ exports.onLoaded = function(args) {
     VM.goBack = function(){
         FrameModule.topmost().goBack();
     };
-
-
+   
     VM.validate = function(){
         if(VM.OTPObj.otp.length != 4){
             GCustomHelpersModule.getSimpleAlert("Error", "OTP si sahihi!");

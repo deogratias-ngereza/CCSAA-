@@ -1,6 +1,6 @@
 var http = require("http");
 //exports.api_root = "http://35.154.245.16:5001";
-exports.api_root = "http://192.168.43.192:1001";
+exports.api_root = "http://192.168.43.67:1001";
 //
 
  
@@ -23,7 +23,7 @@ exports.grand_basic_put = function(api_name, _data) {
         headers: { "Content-Type": "application/json" },
         content: JSON.stringify(_data) 
     });
-};
+}; 
 
 
 
@@ -98,6 +98,33 @@ exports.grand_basic_get_fromUrl = function($url) {
  */
 exports.getUrlForApiPage = function(page, data) {
     switch (page) {
+
+
+
+        /**CCSAA -Courier Customer Simple Android App */
+        case "post_register":
+            return this.api_root + "/ccsaa-api-v1/register";
+            break;
+
+
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*** */
         //basic post requests
         case "get_connectivity":
             return this.api_root + ""; 
@@ -105,59 +132,56 @@ exports.getUrlForApiPage = function(page, data) {
 
             
         case "post_login":
-            return this.api_root + "/cust-mob-api-v1/login_by_phone";
-            break;
-        case "post_register":
-            return this.api_root + "/cust-mob-api-v1/register";
+            return this.api_root + "/ccsaa-api-v1/login_by_phone";
             break;
         case "reset_password":
-            return this.api_root + "/cust-mob-api-v1/reset_password";
+            return this.api_root + "/ccsaa-api-v1/reset_password";
             break;
         case "post_validate_otp_reg":
-            return this.api_root + "/cust-mob-api-v1/verify_otp";
+            return this.api_root + "/ccsaa-api-v1/verify_otp";
             break;
         case "resend_reg_otp":
-            return this.api_root + "/cust-mob-api-v1/resend_reg_otp";
+            return this.api_root + "/ccsaa-api-v1/resend_reg_otp";
             break;
         case "request_password_recovery":
-            return this.api_root + "/cust-mob-api-v1/request_password_recovery";
+            return this.api_root + "/ccsaa-api-v1/request_password_recovery";
             break;
         case "get_all_imports":
-            return this.api_root + "/cust-mob-api-v1/wh_imports";
+            return this.api_root + "/ccsaa-api-v1/wh_imports";
             break;
         case "get_my_deliveries":
-            return this.api_root + "/cust-mob-api-v1/my_deliveries/" + data.id;
+            return this.api_root + "/ccsaa-api-v1/my_deliveries/" + data.id;
             break;
         case "mark_pod":
-            return this.api_root + "/cust-mob-api-v1/mark_pod";
+            return this.api_root + "/ccsaa-api-v1/mark_pod";
             break;
         case "insert_customer_address":
-            return this.api_root + "/cust-mob-api-v1/customer_addresses_insert";
+            return this.api_root + "/ccsaa-api-v1/customer_addresses_insert";
             break;
         case "customer_update":
-            return this.api_root + "/cust-mob-api-v1/customer_update/" + data.id;
+            return this.api_root + "/ccsaa-api-v1/customer_update/" + data.id;
             break;
         case "pickup_request_insert":
-            return this.api_root + "/cust-mob-api-v1/pickup_request_insert";
+            return this.api_root + "/ccsaa-api-v1/pickup_request_insert";
             break;
         case "pickup_requests_for_customer":
-            return this.api_root + "/cust-mob-api-v1/pickup_requests_for_customer/" + data.id;
+            return this.api_root + "/ccsaa-api-v1/pickup_requests_for_customer/" + data.id;
             break;
         case "customer_manifest_search_by_id":
-            return this.api_root + "/cust-mob-api-v1/customer_manifest_search_by_id/" + data.id;
+            return this.api_root + "/ccsaa-api-v1/customer_manifest_search_by_id/" + data.id;
             break;
         case "get_history_for_manifest":
-            return this.api_root + "/cust-mob-api-v1/get_history_for_manifest/" + data.id;
+            return this.api_root + "/ccsaa-api-v1/get_history_for_manifest/" + data.id;
             break;//NOT USErD 
         case "get_all_customer_manifests_by_id_with_history":
-            return this.api_root + "/cust-mob-api-v1/get_all_customer_manifests_by_id_with_history/" + data.id;
+            return this.api_root + "/ccsaa-api-v1/get_all_customer_manifests_by_id_with_history/" + data.id;
             break;
         case "get_all_history_for_manifest_cust":
-            return this.api_root + "/cust-mob-api-v1/get_all_history_for_manifest_cust/" + data.id;
+            return this.api_root + "/ccsaa-api-v1/get_all_history_for_manifest_cust/" + data.id;
             break;
 
         case "get_countries_map":
-            return this.api_root + "/cust-mob-api-v1/countries_map";
+            return this.api_root + "/ccsaa-api-v1/countries_map";
             break;
             
             

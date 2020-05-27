@@ -32,27 +32,33 @@ exports.onLoaded = function(args) {
     VM.set("loadingStatus",false);
     VM.set("signUpObj",{ 
        // "first_name" : "","last_name":"","email":"","phone_no":"","password":"","password2":"","address":""
-       //"first_name" : "Test","last_name":"Test","email":"Test","phone_no":"0688059688","password":"password","password2":"password","address":"Test"
-       "first_name" : "","last_name":"","email":"","phone_no":"","password":"","password2":"","address":""
+       "first_name" : "Test","last_name":"Test","email":"grand123grand1@gmail.com","phone_no":"0688059688","password":"password","password2":"password","address":"Test"
+      // "first_name" : "","last_name":"","email":"","phone_no":"","password":"","password2":"","address":""
     });
 
     VM.goBack = function(){
         FrameModule.topmost().goBack();
+    };
+    VM.goVerifyOTPPage = function(){
+        GrandNavigator.goVerifyOTP();
+    };
+    VM.goLoginPage = function(){alert('login')
+        GrandNavigator.goLogin();
     };
 
     VM.signup = function(){
         //console.log("[ SIGNUP DATA ]" + JSON.stringify(VM.get("signUpObj")));
         //GrandNavigator.goReceiveRegOTP();
 
-        if(VM.signUpObj.first_name == "" || VM.signUpObj.last_name == "" || VM.signUpObj.phone_no == "" || VM.signUpObj.address == "" || VM.signUpObj.password == ""){
-            GCustomHelpersModule.getSimpleAlert("Invalid Credentials", "Hakiki fomu yako!");
+        if(VM.signUpObj.first_name == "" || VM.signUpObj.last_name == "" || VM.signUpObj.password == ""){
+            GCustomHelpersModule.getSimpleAlert("Invalid Form Inputs", "Hakiki fomu yako!");
             return;
         }
         else if(VM.signUpObj.password != VM.signUpObj.password2){
-            GCustomHelpersModule.getSimpleAlert("Password Error", "Namba za siri haziko sawa sawa!!");
+            GCustomHelpersModule.getSimpleAlert("Password Mismatch!", "Namba za siri haziko sawa sawa!!");
             return;
-        }else if(VM.signUpObj.phone_no == ""){
-            GCustomHelpersModule.getSimpleAlert("Phone Error", "Namba ya simu si sahihi!");
+        }else if(VM.signUpObj.phone_no == "" || VM.signUpObj.phone_no.length != 10){
+            GCustomHelpersModule.getSimpleAlert("Invalid Phone no!", "Namba ya simu si sahihi!");
             return;
         }
         else{
@@ -78,11 +84,12 @@ exports.onLoaded = function(args) {
                     //GDbModule.saveThisUserToken(contentOBJ.msg_data.token);
                     //redirect user to the main app.
                     GDbModule.saveCurrentOTPRecCustID(contentOBJ.msg_data.customer_id);
-                    GCustomHelpersModule.getSimpleLongToast("Asante,Subiri ujumbe mfupi wa uhakiki");
-                    GrandNavigator.goReceiveRegOTP();
-                } else if(res.statusCode == 401){
+                    GCustomHelpersModule.getSimpleLongToast("Asante,Subiri ujumbe mfupi(sms/email) kisha ingiza namba ya OTP iliyotumwa.");
+                    GrandNavigator.goReceiveRegOTP(); 
+
+                } else if(res.statusCode == 400){
                     //GCustomHelpersModule.getSimpleLongToast("Invalid credentials!!");
-                    GCustomHelpersModule.getSimpleAlert("Signup Error", contentOBJ.msg_data);
+                    GCustomHelpersModule.getSimpleAlert("Signup Error", contentOBJ.msg);
                 }else{
                     GCustomHelpersModule.getSimpleAlert("Signup Error", contentOBJ.msg_data);
                 }

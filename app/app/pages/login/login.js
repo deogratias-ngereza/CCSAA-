@@ -31,22 +31,18 @@ exports.onLoaded = function(args) {
         setTimeout(() => {
             loaderStatus(0);
             GrandNavigator.goHome();
-        }, 2000);
+        }, 1000);
     }else{
         setTimeout(() => {
             loaderStatus(0);
-        }, 3000);
+        }, 2000);
     }
 
 
-    VM.goResendOTP = function(){
-        GrandNavigator.goReceiveRegOTP();
-    };
-
 
     
-
     
+     
 };
 
 
@@ -65,6 +61,9 @@ exports.goSignUpPage = function(){
 };
 exports.goRecoverPage = function(){
     GrandNavigator.goRecover();
+};
+exports.goResendOTP = function(){
+    GrandNavigator.goReceiveRegOTP();
 };
 
 
@@ -106,6 +105,10 @@ var get_countries_map_n_go_home = function(){
 
 exports.login = function(){
     loaderStatus(1);
+    GCustomHelpersModule.getSimpleShortToast("You may continue");
+            GrandNavigator.goHome();
+            return;
+            
 
     //alert("" + JSON.stringify(VM.userLoginObj));
 

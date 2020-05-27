@@ -41,7 +41,7 @@ exports.onLoaded = function(args) {
     nsDrawer = view.getViewById(page, "sideDrawer");
 
     setTimeout(() => {
-        createBanner();
+        //createBanner();
     }, 1000);     
 
     /*follow the links */ 
